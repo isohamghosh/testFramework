@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="test">
+
+	<listeners>
+	
+		<listener class-name="com.example.util.ExtentReportManager" />
+	
+	</listeners>
+
+
+	<test name = "demotest">
+	
+		<classes>
+			<class name = "com.api.test.UserTests"/>
+		</classes>
+	</test>
+
+</suite>

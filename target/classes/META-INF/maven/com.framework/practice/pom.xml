@@ -1,0 +1,89 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.framework</groupId>
+	<artifactId>practice</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<mavenCompilerPluginVersion>3.10.1</mavenCompilerPluginVersion>
+		<navenSureFirePluginVersion>3.0.0-M5</navenSureFirePluginVersion>
+		<compileSourceVersion>1.17</compileSourceVersion>
+		<tagetSourceVersion>1.17</tagetSourceVersion>
+		<seleniumVersion>4.8.3</seleniumVersion>
+		<testNGVersion>7.7.1</testNGVersion>
+		<webDriverManagerVersion>5.3.2</webDriverManagerVersion>
+		<extendReportVersion>5.1.0</extendReportVersion>
+		<restAssuredVersion>5.3.2</restAssuredVersion>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${seleniumVersion}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>${testNGVersion}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>${extendReportVersion}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>${webDriverManagerVersion}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>${restAssuredVersion}</version>
+			<scope>test</scope>
+		</dependency>
+
+
+	</dependencies>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${mavenCompilerPluginVersion}</version>
+					<configuration>
+						<source>${compileSourceVersion}</source>
+						<target>${tagetSourceVersion}</target>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${navenSureFirePluginVersion}</version>
+					<configuration>
+						<suiteXmlFiles>
+							<suiteXmlFile>src\test\resources\testngxml\${xmlFile}</suiteXmlFile>
+						</suiteXmlFiles>
+					</configuration>
+				</plugin>
+
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>
